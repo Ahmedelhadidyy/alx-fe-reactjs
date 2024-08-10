@@ -1,4 +1,4 @@
-const Userprofile = (props) => {
+const UserProfile = (props) => {
     return(
         <div>
             <h2>{props.name}</h2>
@@ -7,4 +7,4 @@ const Userprofile = (props) => {
         </div>
     );
 };
-export default Userprofile
+export default UserProfile
