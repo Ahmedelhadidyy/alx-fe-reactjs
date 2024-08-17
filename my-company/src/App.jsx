@@ -5,7 +5,7 @@ import About from './components/About/About'
 import Services from './components/Services/Services'
 import Contact from './components/Contact/Contact'
 import Home from './components/Home/Home'
-import Navbar from './Navbar';
+import Navbar from './Components/Navbar';
 import ReloadPage from './ReloadPage';
 import Layout from './Layout';
 import ImageComponent from './Components/Img/Img';
