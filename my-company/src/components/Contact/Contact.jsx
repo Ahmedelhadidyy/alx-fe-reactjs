@@ -19,9 +19,9 @@ function Contact() {
   };
 
   return (
-    <div style={{ padding: '20px' }}>
-      <h1>Contact Us</h1>
-      <form onSubmit={handleSubmit}>
+    <div style={{ padding: '20px', display:'flex', flexDirection:'column',alignItems:'center' }}>
+      <h1  style={{padding:"10px", color:'darkred', fontSize:"2em"}}>Contact Us</h1>
+      <form onSubmit={handleSubmit} style={{ padding: '20px', display:'flex', flexDirection:'column',alignItems:'center' }}>
         <input
           type="text"
           name="name"
@@ -45,7 +45,7 @@ function Contact() {
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
-        <button type="submit">Send Message</button>
+        <button type="submit" style={{borderRadius:"20px",width:"20em", color:"darkred",height:"2em"}}>Send Message</button>
       </form>
     </div>
   );
