@@ -3,7 +3,6 @@ import SearchBar from './SearchBar';
 import useRecipeStore from './recipeStore';
 import EditRecipeForm from './EditRecipeForm';
 import DeleteRecipeButton from './DeleteRecipeButton';
-
 import RecipeList from './RecipeList';
 
 const RecipeDetails = () => {
