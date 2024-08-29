@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const RegistrationForm = () => {
-    const [formData, setFormData] = useState({ username: '', email: '', password: ''});
+    const [formData, setFormData] = useState({ name: '', email: '', password: ''});
     const [error , setError] = useState('');
 
 
@@ -17,7 +17,7 @@ const RegistrationForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!formData.username || !formData.email || !formData.password) {
+        if(!formData.name || !formData.email || !formData.password) {
             setError('All fields are required.');
             return;
         }
@@ -32,7 +32,7 @@ const RegistrationForm = () => {
         <input 
             type="text"
             name='username'
-            value={formData.username}
+            value={formData.name}
             onChange={handlechange}
             placeholder='Name'
         />
