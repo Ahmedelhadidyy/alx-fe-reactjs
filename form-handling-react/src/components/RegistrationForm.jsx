@@ -1,15 +1,20 @@
 import { useState } from 'react';
 
 const RegistrationForm = () => {
-    const [formData, setFormData] = useState({ name: '', email: '', password: ''});
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    
+
+    // const [formData, setFormData] = useState({ username: '', email: '', password: ''});
     const [error , setError] = useState('');
 
 
 
-    const handlechange = (e) => {
-        const { name, value} = e.target;
-        setFormData((prevstate) => ({ ...prevstate, [name]: value }));
-    };
+    // const handlechange = (e) => {
+    //     const { name, value} = e.target;
+    //     // setFormData((prevstate) => ({ ...prevstate, [name]: value }));
+    // };
 
 
 
@@ -17,12 +22,12 @@ const RegistrationForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        if(!formData.name || !formData.email || !formData.password) {
+        if(!username || !email || !password) {
             setError('All fields are required.');
             return;
         }
         setError('');
-        console.log(formData);
+        console.log('Form submitted successfully!');
     };
     
 
@@ -32,22 +37,22 @@ const RegistrationForm = () => {
         <input 
             type="text"
             name='username'
-            value={formData.name}
-            onChange={handlechange}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             placeholder='Name'
         />
         <input 
             type="email"
             name='email'
-            value={formData.email}
-            onChange={handlechange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder='Email'
         />
         <input 
             type="password"
             name='password'
-            value={formData.password}
-            onChange={handlechange}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder='Password'
         />
     <button type="submit">Submit</button>
