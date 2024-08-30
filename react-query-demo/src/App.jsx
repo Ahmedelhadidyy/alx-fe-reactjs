@@ -6,8 +6,9 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <PostsComponent />
+      <PostsComponent /><h1>hello</h1>
     </QueryClientProvider>
+    
   )
 }
 
