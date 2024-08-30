@@ -7,7 +7,6 @@ import BlogPost from './components/BlogPost';
 
 
 const App = () => {
-  const isAuthenticated = false;
 
   return (
     <div>
@@ -27,7 +26,7 @@ const App = () => {
         <Route
           path="/profile/*"
           element={
-            <ProtectedRoute isAuthenticated={isAuthenticated}>
+            <ProtectedRoute>
               <Profile />
             </ProtectedRoute>
           }
