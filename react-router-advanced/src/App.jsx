@@ -3,6 +3,7 @@ import Home from './components/Home';
 import Profile from './components/profile';
 import Login from './components/Login';
 import ProtectedRoute from './components/ProtectedRoute';
+import BlogPost from './components/BlogPost';
 
 
 const App = () => {
@@ -15,9 +16,11 @@ const App = () => {
 
       <Router>
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/profile">Profile</Link>
+          <Link to="/" style={{ margin: '0 10px' }}>Home</Link>
+          <Link to="/login" style={{ margin: '0 10px' }}>Login</Link>
+          <Link to="/profile" style={{ margin: '0 10px' }}>Profile</Link>
+          <Link to="/blog/1" style={{ margin: '0 10px' }}>Blog Post 1</Link>
+          <Link to="/blog/2" style={{ margin: '0 10px' }}>Blog Post 2</Link>
         </nav>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -30,6 +33,7 @@ const App = () => {
           }
         />
         <Route path="/login" element={<Login />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
     </div>
