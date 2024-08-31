@@ -38,6 +38,6 @@ import TodoList from '../components/TodoList';
     const deleteButton = todoItem.nextSibling; 
 
     fireEvent.click(deleteButton);
-    expect(todoItem).toBeInTheDocument();
+    expect(todoItem).not.toBeInTheDocument();
   });
 ;
