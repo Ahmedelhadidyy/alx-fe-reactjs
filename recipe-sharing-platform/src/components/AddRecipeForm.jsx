@@ -8,14 +8,23 @@ const AddRecipeForm = () => {
     const [steps, setSteps] = useState('');
     const [errors, setErrors] = useState('');
 
-    const handleSubmit = (e) => {
-        e.AddRecipeFormDefault();
+    const validate = () => {
 
         const validaionErrors = {};
-        if (!title) validaionErrors.title = 'Title is required';
-        if (!ingredients) validaionErrors.ingredients = 'Ingredients are required';
-        if (!steps) validaionErrors.steps = 'Steps are required';
 
+        if (!title.trim()) validaionErrors.title = 'Title is required';
+        if (!ingredients.trim()) validaionErrors.ingredients = 'Ingredients are required';
+        if (!steps.trim()) validaionErrors.steps = 'Steps are required';
+        return validaionErrors;
+
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const validaionErrors = validate();
+
+        
         setErrors(validaionErrors);
         if (Object.keys(validaionErrors).length === 0) {
             console.log('Form submitted successfully!', {title, ingredients, steps})
