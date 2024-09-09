@@ -42,7 +42,23 @@ const RecipeDetail = () => {
                   ))}
                 </ol>
               </div>
-              <Link to="/" className="block mt-6 text-blue-500 hover:text-blue-700">Back to Home</Link>
+
+            <div className="flex justify-between">
+                <Link to="/">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 hover:scale-110 transition-transform duration-500 ease-in-out">
+              Back to HomePage
+              </button>
+            </Link>
+            
+            <Link to="/addrecipeform">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 hover:scale-110 transition-transform duration-500 ease-in-out">
+              Add Recipe
+              </button>
+            </Link>
+                
+            </div>  
+            
+
             </div>
           );
         };

@@ -31,10 +31,19 @@ const HomePage = () => {
                 View Recipe
               </button>
             </Link>
-          </div>
+          </div>  
         </div>
       ))}
     </div>
+    <div className="flex justify-between mt-16">
+                
+            <Link to="/addrecipeform">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 hover:scale-110 transition-transform duration-500 ease-in-out w-40">
+              Add Recipe
+              </button>
+            </Link>
+                
+            </div>
   </div>
 );
 };
