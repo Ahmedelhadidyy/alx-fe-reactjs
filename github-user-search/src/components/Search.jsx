@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { fetchAdvancedUserData } from "../services/githubService"; 
+import { fetchUserData } from "../services/githubService";
 
 function Search() {
     const [username, setUsername] = useState("");
@@ -15,7 +15,7 @@ function Search() {
         setError(null);
 
         try {
-            const usersData = await fetchAdvancedUserData({ username, location, minRepos });
+            const usersData = await fetchUserData({ username, location, minRepos });
             setUsers(usersData);
         } catch (setError) {
             setError("No users found with the specified criteria.");

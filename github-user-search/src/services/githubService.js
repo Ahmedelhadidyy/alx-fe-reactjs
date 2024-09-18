@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function fetchAdvancedUserData({ username, location, minRepos }) {
+export async function fetchUserData ({ username, location, minRepos }) {
     try {
         let query = '';
         if (username) query += `user:${username}`;
