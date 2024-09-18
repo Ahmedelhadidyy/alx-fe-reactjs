@@ -1,52 +1,54 @@
-import  { useState } from 'react';
-import { fetchUserData } from '../services/githubService';
+import { useState } from "react";
+import { fetchUserData } from "../services/githubService"; 
 
-function Search( setUser ) {
-        const [username, setUsername] = useState('');
+function Search() {
+    const [username, setUsername] = useState("");
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
+    const [error, setError] = useState(null);
 
-    const handleSubmit = async (event) => {
-        event.preventDefault(); 
-        setLoading(true); 
-        setError('');
-        
+    const handleSearch = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+
         try {
             const userData = await fetchUserData(username);
-            setUser(userData); 
+            setUser(userData);
         } catch (setError) {
-            setError('Looks like we can’t find the user.');
+            setError("Looks like we can't find the user");
         } finally {
-            setLoading(false); 
+            setLoading(false);
         }
     };
 
     return (
-        <div>
-            <form onSubmit={handleSubmit} className="mb-4">
+        <div className="search-container">
+            <form onSubmit={handleSearch}>
                 <input
                     type="text"
-                    placeholder="Search GitHub User"
                     value={username}
-                    onChange={(e) => setUsername(e.target.value)} 
-                    className="border p-2 rounded mr-2"
+                    onChange={(e) => setUsername(e.target.value)}
+                    placeholder="Enter GitHub username"
                 />
-                <button
-                    type="submit"
-                    className="bg-blue-500 text-white p-2 rounded"
-                    disabled={loading} 
-                >
-                    {loading ? 'Loading...' : 'Search'}
-                </button>
+                <button type="submit">Search</button>
             </form>
-            {error && <p className="text-red-500">{error}</p>}
+
+            {loading && <p>Loading...</p>}
+
+            {error && <p>{error}</p>}
+
+            {user && (
+                <div className="user-info">
+                    <img src={user.avatar_url} alt={`${user.login}'s avatar`} />
+                    <h2>{user.login}</h2>
+                    <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+                        View GitHub Profile
+                    </a>
+                </div>
+            )}
         </div>
     );
 }
 
-
-
-
-
-export default Search;
-
+export default Search
